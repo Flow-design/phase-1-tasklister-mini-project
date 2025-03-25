@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   
   const form = document.getElementById("create-task-form");
-  const taskList = document.createElement("ul"); 
-  document.body.appendChild(taskList); 
+  const taskList = document.getElementById("tasks"); 
 
-  
   form.addEventListener("submit", (event) => {
       event.preventDefault(); 
 
@@ -17,33 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
           const taskItem = document.createElement("li");
           taskItem.textContent = taskText;
 
-          
           const deleteButton = document.createElement("button");
-          deleteButton.textContent = "X";
-          deleteButton.style.marginLeft = "10px";
-          deleteButton.style.color = "red";
+            deleteButton.textContent = "X";
+            deleteButton.style.marginLeft = "10px";
+            deleteButton.style.color = "red";
 
-          
-          deleteButton.addEventListener("click", () => {
-              taskItem.remove();
-          });
+            
+            deleteButton.addEventListener("click", () => {
+                taskItem.remove();
+            });
 
-        
-          taskItem.appendChild(deleteButton);
+            
+            taskItem.appendChild(deleteButton);
+
 
           
           taskList.appendChild(taskItem);
 
-        
+          
           taskInput.value = "";
       }
   });
-});
-
-let form, formInput, taskList;
-
-before(() => {
-  form = document.querySelector('#create-task-form');
-  formInput = document.querySelector('#new-task-description');
-  taskList = document.querySelector('#tasks');
 });
